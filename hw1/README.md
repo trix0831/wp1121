@@ -1,6 +1,6 @@
 # Web Programming HW#1
 
-Same opening mathod as example on week 2
+Same opening method as example on week 2
 
 1. create and set up .env at backend
 2. run "yarn dev" in backend

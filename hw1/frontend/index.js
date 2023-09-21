@@ -6,7 +6,6 @@ const view_content = document.getElementById("view-page");
 const edit_content = document.getElementById("editing-page");
 const edit_todo_content = document.getElementById("editing-todo-page");
 const add_diary_button = document.getElementById("add-diary-button");
-const diary_save_button = document.getElementById("todo-add");
 
 const academic_button = document.getElementById("academic");
 const personality_button = document.getElementById("personality");
@@ -27,8 +26,6 @@ let viewing = true;
 let kind = -1;
 let mood = -1;
 let complete = false;
-let edited = false;
-
 
 const instance = axios.create({
   baseURL: "http://localhost:8000/api",
@@ -271,13 +268,6 @@ async function deleteTodoElement(id) {
   }
 }
 
-async function editTodoElement(id) {
-  try {
-    await editTodoById(id);
-  } catch (error) {
-    alert("Failed to edit todo!");
-  } 
-}
 
 async function getTodos() {
   const response = await instance.get("/todos");
