@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>todo list</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="index.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+      integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  
+  <body>
+    <h1>My Diary</h1>
+    <button id = "add-diary-button">Add Diary</button>
+
+
+    <div id = "view-page" style.display = "block">
+      <section id="todos"></section>
+    </div>
+
+    <div id = "editing-page" style.display = "none">
+      <p id = "edit-page-title">Add A New Diary ~</p>
+
+      <div id="todo-input-container">
+        <!-- <input type="text" id="todo-input" placeholder="date" tabindex="1" /> -->
+        <label for="dateInput">Select a Date:</label>
+        <input type="date" id="dateInput" name="dateInput">
+        <button id="todo-add" tabindex="3">save</button>
+      </div>
+
+
+      <textarea
+        id="todo-description-input"
+        placeholder="description"
+        tabindex="2"
+      ></textarea>
+
+      <!-- button -->
+      <div id="choices_kind">
+        <button id="academic">學業</button>
+        <button id="personality">人際</button>
+        <button id="club">社團</button>
+      </div>
+      <div id="choices_mood">
+        <button id="happy">快樂</button>
+        <button id="angry">生氣</button>
+        <button id="down">難過</button>
+      </div>
+
+
+    </div>
+
+    <div id = "editing-todo-page" style.display = "none">
+      <p id = "edit-page-title">Add A New Diary ~</p>
+
+      <div id="todo-input-container-edit">
+        <!-- <input type="text" id="todo-input" placeholder="date" tabindex="1" /> -->
+        <label for="dateInput-edit">Select a Date:</label>
+        <input type="date" id="dateInput-edit" name="dateInput-edit">
+        <button id="todo-edit" tabindex="3">save</button>
+      </div>
+
+
+      <textarea
+        id="todo-description-input-edit"
+        placeholder="description"
+        tabindex="2"
+      ></textarea>
+
+      <!-- button -->
+      <div id="choices_kind-edit">
+        <button id="academic-edit">學業</button>
+        <button id="personality-edit">人際</button>
+        <button id="club-edit">社團</button>
+      </div>
+      <div id="choices_mood-edit">
+        <button id="happy-edit">快樂</button>
+        <button id="angry-edit">生氣</button>
+        <button id="down-edit">難過</button>
+      </div>
+
+
+    </div>
+
+
+    </body>
+
+    <template id="todo-item-template">
+
+      <details id="" class="todo-item">
+        <summary>
+          <div>
+            <!-- title -->
+            <p class="todo-title"></p><br>
+            
+            <!-- tags -->
+            <i class = "tag_kind">tag_kind</i>
+            <i class = "tag_mood">tag_mood</i>
+          
+          </div>
+          <button data-id="" class="edit-todo">edit</button>
+          <button data-id="" class="delete-todo">delete</button>
+
+        </summary>
+
+        <p class="todo-description">todo 1 description</p>
+      </details>
+
+    </template>
+</html>

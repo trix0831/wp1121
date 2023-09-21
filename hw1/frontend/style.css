@@ -1,0 +1,408 @@
+:root {
+  --todo-intput-height: 3rem;
+  --todo-intput-font-size: 2rem;
+}
+
+body {
+  background-color: #949494;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 15vh;
+}
+
+h1 {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 50px;
+  letter-spacing: 2.8px;
+  word-spacing: -3.8px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-align: center;
+}
+
+#edit-page-title {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 30px;
+  letter-spacing: 2.8px;
+  word-spacing: -3.8px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-align: start;
+}
+
+#todo-input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+input#todo-input {
+  flex-grow: 1;
+}
+input#todo-input,
+button#todo-add {
+  height: var(--todo-intput-height);
+  font-size: var(--todo-intput-font-size);
+  border-radius: 0.5rem;
+  padding: 0 0.5rem;
+}
+button#todo-edit {
+  height: var(--todo-intput-height);
+  font-size: var(--todo-intput-font-size);
+  border-radius: 0.5rem;
+  padding: 0 0.5rem;
+}
+textarea#todo-description-input {
+  width: 100%;
+  margin-top: 1rem;
+  height: 5rem;
+  resize: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+textarea#todo-description-input-edit {
+  width: 100%;
+  margin-top: 1rem;
+  height: 5rem;
+  resize: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+#todos {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+  gap: 1rem;
+}
+
+.todo-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+.todo-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.todo-item summary > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.todo-title {
+  margin: 0;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.tag_kind {
+  background-color: #0077cc; /* Background color of the box */
+  color: white; /* Text color */
+  display: inline-block; /* Make the box size fit the text */
+  padding: 5px 10px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners for the box */
+}
+.tag_mood {
+  background-color: #12d1c1; /* Background color of the box */
+  color: white; /* Text color */
+  display: inline-block; /* Make the box size fit the text */
+  padding: 5px 10px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners for the box */
+}
+.todo-description {
+  margin: 0;
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+.todo-description:before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #ccc;
+  margin: 0.5rem 0;
+}
+.todo-item input[type="checkbox"] {
+  height: 1.25rem;
+  width: 1.25rem;
+  cursor: pointer;
+}
+.todo-item button {
+  font-size: 1rem;
+  border-radius: 999px;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  background-color: #f55;
+  color: #fff;
+}
+.todo-item button:hover {
+  background-color: #f77;
+}
+
+
+#add-diary-button {
+	background-color:#9daecd;
+	border-radius:13px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.add-diary-button:hover {
+	background-color:#326eb8;
+}
+.add-diary-button:active {
+	position:relative;
+	top:1px;
+}
+
+#academic {
+	background-color:#44c767;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.academic:hover {
+	background-color:#15747b;
+}
+.academic:active {
+	position:relative;
+	top:1px;
+}
+
+#personality {
+	background-color:#44c767;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.personality:hover {
+	background-color:#377b15;
+}
+.personality:active {
+	position:relative;
+	top:1px;
+}
+
+#club {
+	background-color:#44c767;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.club:hover {
+	background-color:#377b15;
+}
+.club:active {
+	position:relative;
+	top:1px;
+}
+
+#happy {
+	background-color:#d0451b;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.happy:hover {
+	background-color:#bc3315;
+}
+.happy:active {
+	position:relative;
+	top:1px;
+}
+
+#angry {
+	background-color:#d0451b;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.angry:hover {
+	background-color:#bc3315;
+}
+.angry:active {
+	position:relative;
+	top:1px;
+}
+
+#down {
+	background-color:#d0451b;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.down:hover {
+	background-color:#bc3315;
+}
+.down:active {
+	position:relative;
+	top:1px;
+}
+
+#academic-edit {
+	background-color:#44c767;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.academic-edit:hover {
+	background-color:#15747b;
+}
+.academic-edit:active {
+	position:relative;
+	top:1px;
+}
+
+#personality-edit {
+	background-color:#44c767;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.personality-edit:hover {
+	background-color:#377b15;
+}
+.personality-edit:active {
+	position:relative;
+	top:1px;
+}
+
+#club-edit {
+	background-color:#44c767;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.club-edit:hover {
+	background-color:#377b15;
+}
+.club-edit:active {
+	position:relative;
+	top:1px;
+}
+
+#happy-edit {
+	background-color:#d0451b;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.happy-edit:hover {
+	background-color:#bc3315;
+}
+.happy-edit:active {
+	position:relative;
+	top:1px;
+}
+
+#angry-edit {
+	background-color:#d0451b;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.angry-edit:hover {
+	background-color:#bc3315;
+}
+.angry-edit:active {
+	position:relative;
+	top:1px;
+}
+
+#down-edit {
+	background-color:#d0451b;
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 11px;
+	text-decoration:none;
+}
+.down-edit:hover {
+	background-color:#bc3315;
+}
+.down-edit:active {
+	position:relative;
+	top:1px;
+}
