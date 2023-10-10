@@ -3,7 +3,7 @@ import Dialog from '@mui/material/Dialog';
 import HeaderBar from "@/components/HeaderBar";
 import { Button } from "@mui/material";
 import Slide from '@mui/material/Slide';
-import { TransitionProps } from '@mui/material/transitions';
+import type {TransitionProps} from '@mui/material/transitions';
 import Typography from "@mui/material/Typography";
 import Song from "@/components/song";
 import type { SongProps } from "@/components/song";
@@ -52,7 +52,7 @@ export default function PlaylistDialog({ open, songs, onClose, listId, title, de
   const [editButtonText, setEditButtonText] = useState("EDIT");
 
   const { fetchLists } = useCards();
-  const { lists, fetchCards } = useCards();
+  const {fetchCards } = useCards();
 
   const inputRefTitle = useRef<HTMLInputElement>(null);
   const inputRefDescription = useRef<HTMLInputElement>(null);
@@ -110,12 +110,11 @@ export default function PlaylistDialog({ open, songs, onClose, listId, title, de
         deleteCard(selected);
         fetchCards();
       })
-    } catch (error) {
-      alert("Error: Failed to delete card");
+    }catch (error) {
+      alert(error);
     }
 
-    // You can use a function or API call to delete the songs here
-    console.log("Deleting songs:", selectedSongs);
+    // console.log("Deleting songs:", selectedSongs);
     // After deleting, you may want to update the songs list or state
     // to remove the deleted songs.
     setSelectedSongs([]);
@@ -216,7 +215,7 @@ export default function PlaylistDialog({ open, songs, onClose, listId, title, de
         </div>
 
         {editMode && <Typography className="text-start" variant="h6" color="#76ff03" ml={3}>
-                    Editting Mode<br/>remember to clickaway before press "DONE" if you want to save content
+                    Editting Mode<br/>remember to clickaway before press DONE if you want to save content
         </Typography>}
 
         <div className='flex justify-end p-6'>

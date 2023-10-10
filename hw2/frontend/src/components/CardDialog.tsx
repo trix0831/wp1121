@@ -58,7 +58,7 @@ export default function CardDialog(props: CardDialogProps) {
   const [newDescription, setNewDescription] = useState(description);
   const [newLink, setNewLink] = useState(link);
 
-  const { lists, fetchCards } = useCards();
+  const {fetchCards } = useCards();
 
   const handleClose = () => {
     onClose();

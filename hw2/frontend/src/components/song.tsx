@@ -33,7 +33,7 @@ export default function Song({id, title, description, link, listId, editting, se
   const inputRefDescription = useRef<HTMLInputElement>(null);
   const inputRefLink = useRef<HTMLInputElement>(null);
 
-  const { lists, fetchCards } = useCards();
+  const {fetchCards } = useCards();
 
   useEffect(() => {
     if(selectingAll){
