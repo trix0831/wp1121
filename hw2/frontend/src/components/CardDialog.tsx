@@ -73,6 +73,16 @@ export default function CardDialog(props: CardDialogProps) {
   const handleSave = async () => {
     try {
       if (variant === "new") {
+        if(newTitle == ""){
+          alert("Please enter a name for the song");
+        }
+        if(newDescription == ""){
+          alert("Please enter a description for the song");
+        }
+        if(newLink == ""){
+          alert("Please enter a link for the song");
+        }
+
         await createCard({
           title: newTitle,
           description: newDescription,
@@ -80,6 +90,16 @@ export default function CardDialog(props: CardDialogProps) {
           list_id: listId,
         });
       } else {
+        if(newTitle == ""){
+          alert("Please enter a name for the song");
+        }
+        if(newDescription == ""){
+          alert("Please enter a description for the song");
+        }
+        if(newLink == ""){
+          alert("Please enter a link for the song");
+        }
+
         if (
           newTitle === title &&
           newDescription === description &&
@@ -98,8 +118,7 @@ export default function CardDialog(props: CardDialogProps) {
       }
       fetchCards();
     } catch (error) {
-      alert(error);
-      alert("Error: Failed to save card 111");
+      alert("Error: Failed to save card");
     } finally {
       handleClose();
     }

@@ -24,7 +24,7 @@ function App() {
   );
 
   // Function to handle search input change
-  const handleSearchInputChange = (e) => {
+  const handleSearchInputChange = (e:React.ChangeEvent<HTMLTextAreaElement>) => {
     setSearchQuery(e.target.value);
   };
 

@@ -24,6 +24,14 @@ export default function NewListDialog({ open, onClose }: NewListDialogProps) {
 
   const handleAddList = async () => {
     try {
+      if(textfieldRef.current?.value == ""){
+        alert("Please enter Name of the list");
+      }
+
+      if(descriptionRef.current?.value == ""){
+        alert("Please enter Description of the list");
+      }
+
       await createList({ name: textfieldRef.current?.value ?? "" ,description: descriptionRef.current?.value ?? "" });
       fetchLists();
     } catch (error) {

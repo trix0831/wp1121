@@ -58,7 +58,10 @@ export default function Song({id, title, description, link, listId, editting, se
       return;
 
     const newTitle = inputRefTitle.current.value;
-    if (newTitle !== title) {
+    if(newTitle == ""){
+      alert("Please enter a name for the song")
+    }
+    else if (newTitle !== title) {
       try {
         await updateCard(id, {
           title: newTitle,
@@ -80,7 +83,10 @@ export default function Song({id, title, description, link, listId, editting, se
     if (!inputRefDescription.current) return;
 
     const newDescription = inputRefDescription.current.value;
-    if (newDescription !== description) {
+    if(newDescription == ""){
+      alert("Please enter a description for the song")
+    }
+    else if (newDescription !== description) {
       try {
         await updateCard(id, {
           title: title,
@@ -102,7 +108,10 @@ export default function Song({id, title, description, link, listId, editting, se
     if (!inputRefLink.current) return;
 
     const newLink = inputRefLink.current.value;
-    if (newLink !== link) {
+    if(newLink == ""){
+      alert("Please enter a link for the song")
+    }
+    else if (newLink !== link) {
       try {
         await updateCard(id, {
           title: title,

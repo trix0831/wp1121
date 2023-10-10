@@ -49,7 +49,7 @@ export default function PlaylistDialog({ open, songs, onClose, listId, title, de
   const [selectAll, setSelectAll] = useState(false);
   const [preHandleDelete, setPreHandleDelete] = useState(false);
 
-  const [editButtonText, setEditButtonText] = useState("EDIT");
+  const [editButtonText, setEditButtonText] = useState("EDIT SONG");
 
   const { fetchLists } = useCards();
   const {fetchCards } = useCards();
@@ -71,7 +71,10 @@ export default function PlaylistDialog({ open, songs, onClose, listId, title, de
     if (!inputRefTitle.current) return;
 
     const newTitle = inputRefTitle.current.value;
-    if (newTitle !== title) {
+    if(newTitle == ""){
+      alert("Please enter a title for the list")
+    }
+    else if (newTitle !== title) {
       try {
         await updateList(listId, { name: newTitle });
         fetchLists();
@@ -86,7 +89,10 @@ export default function PlaylistDialog({ open, songs, onClose, listId, title, de
     if (!inputRefDescription.current) return;
 
     const newDescription = inputRefDescription.current.value;
-    if (newDescription !== description) {
+    if(newDescription == ""){
+      alert("Please enter a description for the list")
+    }
+    else if (newDescription !== description) {
       try {
         await updateList(listId, { description: newDescription });
         fetchLists();
@@ -233,13 +239,13 @@ export default function PlaylistDialog({ open, songs, onClose, listId, title, de
             variant="contained"
             className="flex mr-2"
             onClick={() => {
-              if (editButtonText == "EDIT"){
+              if (editButtonText == "EDIT SONG"){
                 alert('you are now in the editting mode\ncontent would NOT be saved if you click the "DONE" button directly before clicking elsewhere of the page.')
                 setEditButtonText("DONE");
                 setEditMode(true);
               }
               else{
-                setEditButtonText("EDIT");
+                setEditButtonText("EDIT SONG");
                 setEditMode(false);
               }}}
           >
