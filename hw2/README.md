@@ -2,9 +2,9 @@
 
 Basically, just run the code like example.
 
-#function implemented:
-PERFECT
-1.使用者提示：當使用者未輸入資訊或是進行錯誤操作時，給予適當提示。例如使用者新增或編輯清單時，未輸入標題，以彈窗提示「請輸入標題」。
+**function implemented:**\
+***PERFECT***\
+1.使用者提示：當使用者未輸入資訊或是進行錯誤操作時，給予適當提示。例如使用者新增或編輯清單時，未輸入標題，以彈窗提示「請輸入標題」。\
 2.搜尋：在首頁實作搜尋功能，透過輸入關鍵字尋找相對應之清單。
 
 reminder:
