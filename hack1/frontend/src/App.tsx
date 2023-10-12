@@ -66,11 +66,6 @@ const App = (): React.ReactNode => {
   return (
     <>
   <RouterProvider router={router}/>
-  
-  <BrowserRouter>
-    <AppLayout/>
-  </BrowserRouter>
-
   </>
   );
 };
