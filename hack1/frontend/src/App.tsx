@@ -16,6 +16,8 @@ import Register from '@/routes/auth/Register';
 import FAQ from '@/routes/settings/FAQ';
 import SettingsLayout from '@/routes/settings/Layout';
 import Profile from '@/routes/settings/Profile';
+import AppLayout from '@/routes/Layout';
+import { BrowserRouter } from 'react-router-dom';
 
 const ProviderWrapper = (): React.ReactNode => {
   return (
@@ -61,7 +63,16 @@ const router = createBrowserRouter([
 ]);
 
 const App = (): React.ReactNode => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+  <RouterProvider router={router}/>
+  
+  <BrowserRouter>
+    <AppLayout/>
+  </BrowserRouter>
+
+  </>
+  );
 };
 
 export default App;

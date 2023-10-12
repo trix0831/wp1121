@@ -9,6 +9,7 @@ const tabs = [
   { title: 'Settings', icon: Settings2Icon, path: 'settings' },
 ];
 
+
 const AppLayout = () => {
   const location = useLocation();
 

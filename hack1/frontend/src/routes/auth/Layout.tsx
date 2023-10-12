@@ -60,29 +60,28 @@ const AuthLayout = () => {
   return (
     <form onSubmit={onSubmit}>
       <Card className="w-sm border-none">
-        <Tabs value={location.pathname}>
-          <TabsList className="grid grid-cols-2">
-            {tabs.map((tab) => (
-              /* TODO 1.3: Route Configuration for Login and Register Pages (8%) */
-              /* Each `TabsTrigger` should has a `value` the same as corresponding the pathname. */
-              /* Inside each `TabsTrigger`, there should be a `NavLink` component. */
-              /* You can think of `NavLink`'s `to` prop as the anchor's `href` attribute. */
-              /* Each `NavLink` should use `title` as its content. */
-              /* Reference: https://reactrouter.com/en/main/components/nav-link */
-              /*            https://ui.shadcn.com/docs/components/tabs#usage */
-              <TabsTrigger
-                asChild
-                key={tab.title}
-                value=""
-                className="last-of-type:border-r-0"
-                data-testid={`tab-${tab.path}`}
-              >
-                <NavLink to="" />
-              </TabsTrigger>
-              /* End of TODO 1.3 */
-            ))}
-          </TabsList>
-        </Tabs>
+              <Tabs value={location.pathname}>
+                <TabsList className="grid grid-cols-2">
+                  {tabs.map((tab) => (
+                /* TODO 1.3: Route Configuration for Login and Register Pages (8%) */
+                /* Each `TabsTrigger` should has a `value` the same as corresponding the pathname. */
+                /* Inside each `TabsTrigger`, there should be a `NavLink` component. */
+                /* You can think of `NavLink`'s `to` prop as the anchor's `href` attribute. */
+                /* Each `NavLink` should use `title` as its content. */
+                /* Reference: https://reactrouter.com/en/main/components/nav-link */
+                /*            https://ui.shadcn.com/docs/components/tabs#usage */
+                    <TabsTrigger
+                      asChild
+                      key={tab.title}
+                      value={`/${tab.path}`}
+                      className="last-of-type:border-r-0"
+                      data-testid={`tab-${tab.path}`}
+                    >
+                      <NavLink to={`/${tab.path}`}>{tab.title}</NavLink>
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </Tabs>
         <CardHeader>
           <CardTitle className="flex items-center gap-2 tracking-normal">
             {/* TODO 1.1: Title and Login Page Title (5%) */}
@@ -90,9 +89,17 @@ const AuthLayout = () => {
             {/* The logo should be vscoddit.svg in the public folder. */}
             {/* The logo should have alt text "VSCoddit Logo". */}
             {/* The title should be "VSCoddit" */}
-            <img data-testid="header-logo" className="h-5 w-5 brightness-200" />
-            <span data-testid="header-title" />
+            {/* <img data-testid="header-logo" className="h-5 w-5 brightness-200" />
+            <span data-testid="header-title" /> */}
             {/* END of TODO 1.1 */}
+
+            <img
+              data-testid="header-logo"
+              src="/vscoddit.svg" // Assuming this is the path to your logo
+              alt="VSCoddit Logo"
+              className="h-5 w-5 brightness-200"
+            />
+    <span data-testid="header-title">VSCoddit</span>
           </CardTitle>
           <CardDescription>
             {location.pathname === '/login'
@@ -109,12 +116,23 @@ const AuthLayout = () => {
               {/* It should be controlled by the `username` state. */}
               {/* It should have placeholder text "Enter Username". */}
               {/* It should be required. */}
+              {/* <Input
+                id="username"
+                data-testid="input-username"
+                type="text"
+                name="username"
+                autoComplete="username"
+              /> */}
               <Input
                 id="username"
                 data-testid="input-username"
                 type="text"
                 name="username"
                 autoComplete="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)} // Controlled by the username state
+                placeholder="Enter Username" // Placeholder text
+                required // Required input field
               />
               {/* End of TODO 1.4 */}
             </div>
@@ -125,12 +143,23 @@ const AuthLayout = () => {
               {/* It should be controlled by the `password` state. */}
               {/* It should have placeholder text "Enter Password". */}
               {/* It should be required. */}
+              {/* <Input
+                id="password"
+                data-testid="input-password"
+                type="password"
+                name="password"
+                autoComplete="current-password"
+              /> */}
               <Input
                 id="password"
                 data-testid="input-password"
                 type="password"
                 name="password"
                 autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)} // Controlled by the password state
+                placeholder="Enter Password" // Placeholder text
+                required // Required input field
               />
               {/* End of TODO 1.4 */}
             </div>
@@ -147,12 +176,23 @@ const AuthLayout = () => {
               {/* It should be controlled by the `confirmPassword` state. */}
               {/* It should have placeholder text "Confirm Password". */}
               {/* It should be required only if in the register page. */}
+              {/* <Input
+                id="confirm-password"
+                data-testid="input-confirm-password"
+                type="password"
+                name="confirm-password"
+                autoComplete="new-password"
+              /> */}
               <Input
                 id="confirm-password"
                 data-testid="input-confirm-password"
                 type="password"
                 name="confirm-password"
                 autoComplete="new-password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)} // Controlled by the confirmPassword state
+                placeholder="Confirm Password" // Placeholder text
+                required={location.pathname === '/register'} // Required only if in the register page
               />
               {/* End of TODO 1.5 */}
             </div>

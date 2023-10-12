@@ -32,8 +32,17 @@ export const createUser = asyncWrapper(
     /* TODO 1.5: Ensure User Registration Functions Properly (8%) */
     /* Create new user using `UserModel` */
     /* Return 201 with new user */
-    throw new Error('`createUser` Not Implemented');
+    // throw new Error('`createUser` Not Implemented');
     /* End of TODO 1.5 */
+    try {
+      // Create a new user using UserModel
+      const newUser = await UserModel.create(req.body);
+      // Return a response with a status code of 201 and the newly created user
+      res.status(201).json(newUser);
+    } catch (error) {
+      // Handle errors, e.g., if the user already exists or there's a validation error
+      alert(error);
+    }
   },
 );
 

@@ -3,6 +3,7 @@ import {
   useContext,
   useState,
   type PropsWithChildren,
+  useEffect,
 } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import type { User } from '@shared/types';
@@ -42,6 +43,13 @@ export const UserProvider = ({ children }: PropsWithChildren) => {
   /* Reminder: Don't import this useEffect hook if you are tired of being redirected to the login page. */
   /* Warning: But remember to add it back before submitting your work. */
   /* End of TODO 1.2 */
+  useEffect(() => {
+    // Check if the user is not authenticated and not on the login or register page.
+    if (!authenticated && location.pathname !== '/login' && location.pathname !== '/register') {
+      // Redirect to the login page using the navigate function.
+      navigate('/login');
+    }
+  }, [authenticated, location, navigate]);
 
   const login = async (username: string, password: string) => {
     try {
