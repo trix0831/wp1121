@@ -6,14 +6,30 @@ import { Separator } from "@/components/ui/separator";
 import useTweet from "@/hooks/useTweet";
 import useUserInfo from "@/hooks/useUserInfo";
 import { cn } from "@/lib/utils";
+import useLike from "@/hooks/useLike";
+import { useSearchParams } from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 
-export default function TweetInput() {
-  const { handle } = useUserInfo();
+type TweetInputProps = {
+  tweetNum: number;
+}
+
+export default function TweetInput({tweetNum}: TweetInputProps) {
+  const { handle, username } = useUserInfo();
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [startDateTime, setStartDateTime] = useState<string>("");
   const [endDateTime, setEndDateTime] = useState<string>("");
   const { postTweet, loading } = useTweet();
   const [showModal, setShowModal] = useState(false);
+  const { likeTweet} = useLike();
+
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  // validateUsername and validateHandle would return false if the input is
+  // invalid, so we can safely use the values here and assert that they are
+  // not null or undefined
 
   const formatDateTime = (dateTime: string): string => {
     const date = new Date(dateTime);
@@ -40,6 +56,10 @@ export default function TweetInput() {
     const startTimestamp = new Date(startDateTime).getTime();
     const endTimestamp = new Date(endDateTime).getTime();
     const timeDifferenceHours = (endTimestamp - startTimestamp) / (1000 * 60 * 60);
+
+    const params = new URLSearchParams(searchParams);
+    params.set("username", username!);
+    params.set("handle", handle!);
 
     if (startTimestamp >= endTimestamp) {
       alert("Start time must be earlier than the end time.");
@@ -68,6 +88,18 @@ export default function TweetInput() {
       // Reset the date and time input values after posting
       setStartDateTime("");
       setEndDateTime("");
+
+      const tweetId = tweetNum + 1;
+      console.log(tweetId);
+
+      await likeTweet({
+        tweetId,
+        userHandle: handle,
+      });
+
+      console.log(pathname);
+
+      router.push(`${pathname}tweet/${tweetId}?${params.toString()}`);
     } catch (e) {
       console.error(e);
       alert("Error posting tweet");
